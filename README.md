@@ -49,7 +49,12 @@ BookApp.Solution/
 The easiest way to get the entire ecosystem (API + PostgreSQL) up and running is via Docker Compose.
 
 1. Clone the repository and navigate to the project root.
-2. Spin up the containers:
+2. Rename the provided `.env_example` file to `.env`:
+   ```bash
+   mv .env_example .env
+   ```
+   *(Update the values inside `.env` if necessary)*
+3. Spin up the containers:
    ```bash
    docker-compose up --build -d
    ```
@@ -58,8 +63,9 @@ The easiest way to get the entire ecosystem (API + PostgreSQL) up and running is
 
 ### Running Locally (Without Docker)
 
-1. Ensure you have a running PostgreSQL instance and update the connection string in `appsettings.json`.
-2. Apply EF Core Migrations:
+1. Rename `.env_example` to `.env` in the root folder.
+2. Ensure you have a running PostgreSQL instance and update the connection string inside your `.env` file.
+3. Apply EF Core Migrations:
    ```bash
    cd BookApp.Solution/BookApp.Api
    dotnet ef database update
